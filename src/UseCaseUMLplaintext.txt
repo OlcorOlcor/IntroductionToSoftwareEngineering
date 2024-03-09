@@ -1,0 +1,37 @@
+@startuml
+
+left to right direction
+
+actor "Uchazeč" as uch
+actor "Studijí oddělení" as so
+
+rectangle "Modul Přihlášky" {
+  usecase "Podat přihlášku" as podat
+  usecase "Zrušit přihlášku" as zrusit
+  usecase "Přidat soubory" as pridat
+  usecase "Přihlásit na termín" as prihlasit
+  usecase "Odhlásit termín" as odhlasit
+  usecase "Nahlédnou do dokumentů" as nahlednout
+  usecase "Splnil podmínky pro odpuštění" as splnil_odpusteni
+  usecase "Dostavení na termín" as dostavil_se
+  usecase "Prošel PŘ" as prosel
+}
+
+uch --> podat
+uch --> zrusit
+uch --> pridat
+uch --> prihlasit
+uch --> odhlasit
+
+nahlednout <-- so
+splnil_odpusteni <-- so
+dostavil_se <-- so
+prosel <-- so
+
+pridat <.. nahlednout : "<<extend>>"
+pridat <.. splnil_odpusteni : "<<extend>>"
+prihlasit <.. dostavil_se : "<<extend>>"
+podat <. zrusit : "<<extend>>"
+prihlasit <. odhlasit : "<<extend>>"
+
+@enduml
