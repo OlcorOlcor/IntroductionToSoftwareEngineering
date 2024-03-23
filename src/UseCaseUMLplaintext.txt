@@ -1,21 +1,20 @@
 @startuml
-
 left to right direction
 
 actor "Uchazeč" as uch
 actor "Studijní oddělení" as so
 
 rectangle "Modul Přihlášky" {
+  usecase "Nahlédnout do dokumentů" as nahlednout
   usecase "Podat přihlášku" as podat
   usecase "Zrušit přihlášku" as zrusit
   usecase "Přidat soubory" as pridat
   usecase "Přihlásit na termín" as prihlasit
   usecase "Odhlásit termín" as odhlasit
-  usecase "Nahlédnout do dokumentů" as nahlednout
-  usecase "Splnil podmínky pro odpuštění" as splnil_odpusteni
-  usecase "Dostavení na termín" as dostavil_se
-  usecase "Prošel PŘ" as prosel
-  usecase "Seznam termínů" as seznam_teminu
+  usecase "Potvrdit splnění podmínek pro odpuštění" as splnil_odpusteni
+  usecase "Zapsat dostavení uchazeče na termín" as dostavil_se
+  usecase "Zapsat výsledek přijímacího řízení" as prosel
+  usecase "Zobrazit seznam termínů" as seznam_terminu
 }
 
 uch --> podat
@@ -29,9 +28,14 @@ splnil_odpusteni <-- so
 dostavil_se <-- so
 prosel <-- so
 
-pridat <.. nahlednout : "<<include>>"
+seznam_terminu <.. dostavil_se : "<<include>>"
 nahlednout <.. splnil_odpusteni : "<<include>>"
-prihlasit <.. dostavil_se : "<<extend>>"
-prihlasit ..> seznam_teminu : "<<include>>"
+prihlasit ..> seznam_terminu : "<<include>>"
+
+podat -[hidden]- seznam_terminu 
+podat -[hidden]- dostavil_se 
+podat -[hidden]- prosel
+podat -[hidden]- nahlednout
+seznam_terminu -[hidden]- prosel
 
 @enduml
