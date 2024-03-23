@@ -7,3 +7,4 @@
 7. Jako pracovník studijního oddělení potřebuji mít možnost zadat, jestli uchazeč prošel přijímacím řízením, nebo ne, protože to je výsledek celého příjmacího řízení.
 8. Jako pracovník studijního oddělení potřebuji mít možnost zadat, jestli uchazeč splnil podmínky pro odpuštění od přijímacích zkoušek, aby o tom uchazeč věděl a aby ti, co nesplní se mohli přihlašovat na termín. 
 9. Jako pracovník studijního oddělení potřebuji mít možnost nahlédnout do dokumentů, které uchazeč přiložil, abych mohl zpracovat údaje a potvdit správnost.
+10. Jako uchazeč potřebuji mít možnost zobrzit výsledek přijímacího řízení, abych věděl zda jsem uspěl.
